@@ -5,6 +5,7 @@ from hate.configuration.gcloud_syncer import GCloudSync
 from hate.entity.config_entity import ModelPusherConfig
 from hate.entity.artifact_entity import ModelPusherArtifacts
 
+
 class ModelPusher:
     def __init__(self, model_pusher_config: ModelPusherConfig):
         """
@@ -13,8 +14,6 @@ class ModelPusher:
         self.model_pusher_config = model_pusher_config
         self.gcloud = GCloudSync()
 
-    
-    
     def initiate_model_pusher(self) -> ModelPusherArtifacts:
         """
             Method Name :   initiate_model_pusher
@@ -22,7 +21,8 @@ class ModelPusher:
 
             Output      :    Model pusher artifact
         """
-        logging.info("Entered initiate_model_pusher method of ModelTrainer class")
+        logging.info(
+            "Entered initiate_model_pusher method of ModelTrainer class")
         try:
             # Uploading the model to gcloud storage
 
@@ -36,7 +36,8 @@ class ModelPusher:
             model_pusher_artifact = ModelPusherArtifacts(
                 bucket_name=self.model_pusher_config.BUCKET_NAME
             )
-            logging.info("Exited the initiate_model_pusher method of ModelTrainer class")
+            logging.info(
+                "Exited the initiate_model_pusher method of ModelTrainer class")
             return model_pusher_artifact
 
         except Exception as e:
